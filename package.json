@@ -18,7 +18,10 @@
     "hubot":         ">=2.4.8",
     "hubot-scripts": ">= 2.4.1",
     "hubot-hipchat": ">= 2.4.5",
-    "optparse":      "1.0.3"
+    "optparse":      "1.0.3",
+    "url":           "",
+    "querystring":   "",
+    "gitio":         "1.0.1"
   },
 
   "engines": {
