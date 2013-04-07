@@ -18,14 +18,15 @@ module.exports = (robot) ->
   robot.respond /set default repo (\w+\/\w+)/i, (msg) ->
     if msg.match[1]
       room = msg.room
-      robot.brain.set "#{room}:repo", msg.match[1]
+      robot.brain.data.room_repos ||= {}
+      robot.brain.data.room_repos[room] = msg.match[1]
       msg.send "Remembering that #{msg.match[1]} is the default repo for this room"
     else
       msg.send "I didn't quite get that.  Repo names need to be in the following format: <user>/<repo>"
 
   robot.respond /default repo/, (msg) ->
     room = msg.room
-    repo = robot.brain.get "#{room}:repo"
+    repo = robot.brain.data.room_repos[room]
     if repo
       msg.send "This room's default repo is #{repo}"
     else
