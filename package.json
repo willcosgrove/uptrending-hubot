@@ -21,7 +21,8 @@
     "optparse":      "1.0.3",
     "url":           "",
     "querystring":   "",
-    "gitio":         "1.0.1"
+    "gitio":         "1.0.1",
+    "githubot": "0.2.0"
   },
 
   "engines": {
