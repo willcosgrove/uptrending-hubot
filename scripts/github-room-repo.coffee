@@ -25,7 +25,9 @@ module.exports = (robot) ->
       msg.send "I didn't quite get that.  Repo names need to be in the following format: <user>/<repo>"
 
   robot.respond /default repo/, (msg) ->
+    console.log msg
     room = msg.room
+    console.log room
     repo = robot.brain.data.room_repos[room]
     if repo
       msg.send "This room's default repo is #{repo}"
