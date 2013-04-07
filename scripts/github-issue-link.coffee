@@ -26,7 +26,8 @@ module.exports = (robot) ->
     if isNaN(issue_number)
       return
 
-    bot_github_repo = github.qualified_repo process.env.HUBOT_GITHUB_REPO
+    robot.brain.data.room_repo ||= {}
+    bot_github_repo = robot.brain.data.room_repo[msg.message.room] || github.qualified_repo process.env.HUBOT_GITHUB_REPO
     issue_title = ""
     base_url = process.env.HUBOT_GITHUB_API || 'https://api.github.com'
     github.get "#{base_url}/repos/#{bot_github_repo}/issues/" + issue_number, (issue_obj) ->

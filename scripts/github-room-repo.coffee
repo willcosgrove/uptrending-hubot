@@ -26,7 +26,7 @@ module.exports = (robot) ->
 
   robot.respond /default repo/, (msg) ->
     room = msg.message.room
-    console.log msg.message.room
+    robot.brain.data.room_repos ||= {}
     repo = robot.brain.data.room_repos[room]
     if repo
       msg.send "This room's default repo is #{repo}"
